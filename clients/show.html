@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <h3>Cors Request</h3> 
+    <button id="btnGetStudents">Get Students</button>
+    <pre id="preOutput"></pre> 
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script> 
+    <script> 
+        $(function () { 
+            var getStudents = function () { 
+                var url = "http://localhost:3000/api/students/"; 
+                $.get(url).always(showResponse); 
+                return false; 
+            }; 
+
+            var showResponse = function (object) { 
+                $("#preOutput").text(JSON.stringify(object, null, 4)); 
+            }; 
+
+ 
+
+            $("#btnGetStudents").click(getStudents); 
+
+        }); 
+
+    </script> 
+    
+</body>
+</html>
